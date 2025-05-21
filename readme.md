@@ -1,0 +1,4 @@
+three-tier-arch-aws-terraform
+Provision three tier architecture on AWS using Terraform.
+we created files for load balancers, amazon relational data based service,security groups,backend configurations, variable and version along with all there dependencies. on backend.tf we created an s3 bucket to store the tarraform state as well as a dynamo db_table. 
+we did terraform init, envcoutered errors we fixed these bugs, ran terraform init -reconfigure command. we ran the terraform plan. we recieved a terraform lock-head and we applied. we checked our aws iam accounts to see the deployments then we did terraform destroy.
