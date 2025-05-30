@@ -144,3 +144,17 @@ module "asg" {
 
   tags = var.asg_tags
 }
+
+resource "aws_security_group" "app_tier" {
+  name        = "app-tier-sg"
+  description = "Allow outbound S3 access"
+  vpc_id      = aws_vpc.main.id
+
+  # Allow outbound HTTPS (required for S3)
+  egress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]  # Restrict to VPC Endpoint IPs if needed
+  }
+}
